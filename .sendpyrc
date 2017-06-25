@@ -1,0 +1,28 @@
+[oauth2]
+request_url =
+client_id =
+client_secret =
+
+[account gmail]
+username = osclin@gmail.com
+refresh_token =
+address = smtp.gmail.com
+port = 465
+use_ssl = True
+use_tls = False
+
+[account recv]
+username = osm@recv.se
+refresh_token =
+address = smtp.gmail.com
+port = 465
+use_ssl = True
+use_tls = False
+
+[account dooer]
+username = osm@dooer.com
+refresh_token =
+address = smtp.gmail.com
+port = 465
+use_ssl = True
+use_tls = False

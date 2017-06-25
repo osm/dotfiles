@@ -1,0 +1,59 @@
+[general]
+accounts = recv, dooer, gmail
+
+[Account gmail]
+localrepository  = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-local]
+type         = Maildir
+localfolders = ~/mail/gmail
+
+[Repository gmail-remote]
+type                 = Gmail
+ssl                  = true
+sslcacertfile        = /etc/ssl/certs/ca-certificates.crt
+realdelete           = no
+remoteuser           = osclin@gmail.com
+oauth2_client_id     =
+oauth2_client_secret =
+oauth2_request_url   =
+oauth2_refresh_token =
+
+[Account recv]
+localrepository  = recv-local
+remoterepository = recv-remote
+
+[Repository recv-local]
+type         = Maildir
+localfolders = ~/mail/recv
+
+[Repository recv-remote]
+type                 = Gmail
+ssl                  = true
+sslcacertfile        = /etc/ssl/certs/ca-certificates.crt
+realdelete           = no
+remoteuser           = osm@recv.se
+oauth2_client_id     =
+oauth2_client_secret =
+oauth2_request_url   =
+oauth2_refresh_token =
+
+[Account dooer]
+localrepository  = dooer-local
+remoterepository = dooer-remote
+
+[Repository dooer-local]
+type         = Maildir
+localfolders = ~/mail/dooer
+
+[Repository dooer-remote]
+type                 = Gmail
+ssl                  = true
+sslcacertfile        = /etc/ssl/certs/ca-certificates.crt
+realdelete           = no
+remoteuser           = osm@dooer.com
+oauth2_client_id     =
+oauth2_client_secret =
+oauth2_request_url   =
+oauth2_refresh_token =

@@ -1,0 +1,39 @@
+set date_format = "%y-%m-%d %H:%M"
+set editor = "vim"
+set index_format = "%4Z %D %-20.20L %s"
+set mbox_type = Maildir
+set realname = "Oscar Linderholm"
+set record = "+/SENT/"
+set reverse_name = yes
+set sendmail = "send.py --readfrommsg"
+set sort_aux = "reverse-last-date-received"
+set sort = "threads"
+set spoolfile = "+/INBOX/"
+set status_format = "%f [tot:%m new:%n]"
+
+color attachment cyan default
+color body brightblue default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+color body brightcyan default "(^| )_[^_]+_( |$)"
+color body brightcyan default "(^| )/[^/]+/( |$)"
+color body brightcyan default "(^| )\\*[^*]+\\*( |$)"
+color body brightcyan default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+color header yellow default "^cc:"
+color header yellow default "^date:"
+color header yellow default "^from:"
+color header yellow default "^subject:"
+color header yellow default "^to:"
+color index cyan default "~(~N)"
+color index cyan default "~N"
+color indicator black cyan
+color signature cyan default
+color status white blue
+color tilde cyan default
+color tree cyan default
+
+bind index gg first-entry
+bind index G  last-entry
+bind pager G bottom
+bind pager gg top
+bind pager j next-line
+bind pager k previous-line
+bind pager q noop

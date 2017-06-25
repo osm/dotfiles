@@ -1,0 +1,4 @@
+set from   = "osm@recv.se"
+set folder = "~/mail/recv"
+
+source ~/.muttrc
