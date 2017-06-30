@@ -1,0 +1,17 @@
+[alias]
+	br = branch
+	cm = commit
+	co = checkout
+	st = status
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+[user]
+	email = osm@recv.se
+	name = Oscar Linderholm
+
+[push]
+	default = current
