@@ -2,6 +2,7 @@
 	br = branch
 	cm = commit
 	co = checkout
+	cp = cherry-pick
 	st = status
 
 [color]
