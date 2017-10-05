@@ -4,6 +4,7 @@
 	co = checkout
 	cp = cherry-pick
 	st = status
+	re = rebase
 
 [color]
 	branch = auto
