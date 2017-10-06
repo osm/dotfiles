@@ -5,6 +5,9 @@
 	cp = cherry-pick
 	st = status
 	re = rebase
+	pu = push
+	fe = fetch
+	lo = log
 
 [color]
 	branch = auto
