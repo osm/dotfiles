@@ -26,3 +26,4 @@ autocmd BufNewFile,BufRead *.sql setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 autocmd BufNewFile,BufRead *.txt set textwidth=78
+autocmd BufNewFile,BufRead *.md  set textwidth=78
