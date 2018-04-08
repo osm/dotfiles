@@ -6,3 +6,26 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER \
               "$(history 1)" >> ~/.bash_eternal_history'
 alias grep="grep --color"
 alias ls="ls -F"
+
+function terraform_plan {
+	if [ ! -f "./terraform.sh" ]; then
+		echo "you are in the wrong directory"
+		exit 1
+	fi
+
+	./terraform.sh plan -lock-timeout=5m -out terraform.plan "$@"
+}
+
+function terraform_apply {
+	if [ ! -f "./terraform.sh" ]; then
+		echo "you are in the wrong directory"
+		exit 1
+	fi
+
+	if [[ "$@" == "noplan" ]]; then
+		echo "WARNING: applying without a plan"
+		./terraform.sh apply
+	else
+		./terraform.sh apply terraform.plan
+	fi
+}
