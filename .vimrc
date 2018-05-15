@@ -14,6 +14,8 @@ set ruler
 set smartindent
 set titlestring="%f"
 
+highlight TabLine cterm=reverse
+
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>f <Plug>(go-fmt)
 autocmd FileType go nmap <leader>l <Plug>(go-lint)
