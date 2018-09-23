@@ -30,4 +30,5 @@ autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 
 autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 autocmd BufNewFile,BufRead *.txt set textwidth=78
 autocmd BufNewFile,BufRead *.md  set textwidth=78
+autocmd BufNewFile,BufRead *.c  set textwidth=80
 autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set textwidth=72
