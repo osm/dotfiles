@@ -30,3 +30,7 @@ function terraform_apply {
 		./terraform.sh apply terraform.plan
 	fi
 }
+
+function lcd {
+	cd $(tail -n 1000 "$HOME/.bash_eternal_history" | grep "cd " | tail -n 1 | cut -d' ' -f9-)
+}
