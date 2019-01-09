@@ -17,6 +17,7 @@
 [user]
 	email = osm@recv.se
 	name = Oscar Linderholm
+	signingkey = F121B3010AE7F254
 
 [push]
 	default = current
