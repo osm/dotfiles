@@ -2,16 +2,23 @@ syntax on
 
 let mapleader = ","
 
+set autoindent
+set autoread
 set autowrite
 set backspace=2
+set encoding=utf-8
 set ffs=unix
 set fileencodings=utf-8
+set fileformat=unix
 set hlsearch
 set ignorecase
+set mouse=a
 set noexpandtab
 set noswapfile
 set ruler
 set smartindent
+set t_Co=256
+set termencoding=utf-8
 set titlestring="%f"
 
 highlight TabLine cterm=reverse
