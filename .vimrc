@@ -12,7 +12,6 @@ set fileencodings=utf-8
 set fileformat=unix
 set hlsearch
 set ignorecase
-set mouse=a
 set noexpandtab
 set noswapfile
 set ruler
