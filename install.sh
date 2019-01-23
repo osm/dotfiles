@@ -1,7 +1,7 @@
 #!/bin/sh
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install awscli consul gnupg golang jq node nomad pinentry-mac postgresql tmux vault vim
+brew install awscli consul gnupg golang jq node nomad pinentry-mac postgresql tmux vault vim yarn
 brew cask install docker dropbox google-chrome iterm2 keepassx slack spotify tunnelblick
 brew services start postgresql
 
