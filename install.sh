@@ -13,5 +13,5 @@ mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
 cp gpg-agent.conf $HOME/.gnupg
 
-mdir -p $HOME/bin
+mkdir -p $HOME/bin
 cp workspace-* $HOME/bin
