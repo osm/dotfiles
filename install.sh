@@ -15,3 +15,5 @@ cp gpg-agent.conf $HOME/.gnupg
 
 mkdir -p $HOME/bin
 cp workspace-* $HOME/bin
+
+mkdir -p $HOME/src
