@@ -20,6 +20,8 @@ set t_Co=256
 set termencoding=utf-8
 set titlestring="%f"
 
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 highlight TabLine cterm=reverse
 
 autocmd FileType go nmap <leader>b <Plug>(go-build)
