@@ -3,11 +3,12 @@
 	cm = commit
 	co = checkout
 	cp = cherry-pick
-	st = status
-	re = rebase
-	pu = push
 	fe = fetch
 	lo = log
+	pu = push
+	re = rebase
+	sh = show
+	st = status
 
 [color]
 	branch = auto
