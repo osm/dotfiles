@@ -8,6 +8,7 @@ alias docker_build_unittest="docker build --build-arg NPM_CACERT='' --build-arg 
 alias docker_build="docker build --build-arg NPM_CACERT='' --build-arg NPM_PROXY='' --build-arg NPM_TOKEN=$(cat ~/.npmrc | cut -d= -f2) ."
 alias tf_plan="./terraform.sh plan -lock-timeout=5m -out terraform.plan"
 alias tf_apply="./terraform.sh apply terraform.plan"
+alias vim="vim -p"
 
 function lcd {
 	cd $(tail -n 1000 "$HOME/Documents/apps/bash/bash-eternal-history" | grep "cd " | tail -n 1 | cut -d' ' -f9-)
