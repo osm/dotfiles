@@ -10,7 +10,7 @@ cp .tmux.conf-mac $HOME/.tmux.conf
 
 mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
-cp gpg-agent.conf $HOME/.gnupg
+cp gpg-agent.conf-mac $HOME/.gnupg
 
 mkdir -p $HOME/bin
 cp ../workspace-* $HOME/bin
