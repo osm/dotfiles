@@ -6,6 +6,7 @@ sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libx
 mkdir -p $HOME/{bin,src,tmp}
 cp .bash_profile .gitconfig .vimrc .xinitrc .Xresources $HOME
 cp .tmux.conf-linux $HOME/.tmux.conf
+cp workspace-* $HOME/bin
 
 if [ ! -d "/etc/X11/xorg.conf.d" ]; then
 	sudo mkdir -p "/etc/X11/xorg.conf.d"
