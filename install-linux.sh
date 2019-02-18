@@ -6,7 +6,8 @@ sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libx
 mkdir $HOME/bin
 mkdir $HOME/src
 mkdir $HOME/tmp
-cp .bash_profile .gitconfig .vimrc .xinitrc .Xresources $HOME
+cp .gitconfig .vimrc .xinitrc .Xresources $HOME
+cp .bash_profile-linux $HOME/.bash_profile
 cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
 
