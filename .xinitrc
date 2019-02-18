@@ -7,11 +7,12 @@ xrdb -merge "$HOME/.Xresources"
 xset r rate 200 60
 
 while true; do
-	date=$(date +'%Y-%m-%d %H:%M')
 	bat=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage: | awk '{ print $2 }')
-	vpn=$(ifconfig tun0 >/dev/null 2>&1 && echo 1 || echo 0)
+	date=$(date +'%Y-%m-%d %H:%M')
 	load=$(awk '{ print $1 "/" $2 "/" $3 }' /proc/loadavg)
-	xsetroot -name "load: $load | vpn: $vpn | bat: $bat | $date"
+	vpn=$(ifconfig tun0 >/dev/null 2>&1 && echo 1 || echo 0)
+	wifi=$(ifconfig wlp2s0 | grep inet >/dev/null 2>&1 && echo 1 || echo 0)
+	xsetroot -name "load: $load | wifi: $wifi | vpn: $vpn | bat: $bat | $date"
 	sleep 5
 done&
 
