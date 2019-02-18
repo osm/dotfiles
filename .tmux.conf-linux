@@ -2,6 +2,7 @@ unbind C-b
 set -g prefix C-s
 
 set -g base-index 1
+set -g mouse on
 set -sg escape-time 0
 
 set -g window-status-current-bg black
