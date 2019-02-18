@@ -3,11 +3,24 @@
 sudo apt-get update
 sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools unzip openvpn net-tools nmap nodejs npm
 
-mkdir $HOME/bin
-mkdir $HOME/src
-mkdir $HOME/tmp
+if [ ! -d "$HOME/bin" ]; then
+	mkdir $HOME/bin
+fi
+
+if [ ! -d "$HOME/src" ]; then
+	mkdir $HOME/src
+fi
+
+if [ ! -d "$HOME/tmp" ]; then
+	mkdir $HOME/tmp
+fi
+
+if [ ! -d "$HOME/dl" ]; then
+	mkdir $HOME/dl
+fi
+
 cp .gitconfig .vimrc .xinitrc .Xresources $HOME
-cp .bash_profile-linux $HOME/.bash_profile
+cp .bash_profile-linux $HOME/.bashrc
 cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
 
@@ -48,16 +61,18 @@ fi
 
 DMENU_VERSION="4.9"
 if [ ! -f "/usr/local/bin/dmenu" ]; then
-	cd "/tmp"
+	cd $HOME/tmp
 	curl "https://dl.suckless.org/tools/dmenu-$DMENU_VERSION.tar.gz" | tar xzf -
-	cd "st-$DMENU_VERSION"
+	cd "dmenu-$DMENU_VERSION"
 	make
 	sudo make install
 fi
 
 VAULT_VERSION="1.0.3"
 if [ ! -f "/usr/local/bin/vault" ]; then
-	curl https://releases.hashicorp.com/vault/$VAULT_VERSION/vault_${VAULT_VERSION}_linux_amd64.zip -o /tmp/vault.zip
+	cd $HOME/tmp
+	curl https://releases.hashicorp.com/vault/$VAULT_VERSION/vault_${VAULT_VERSION}_linux_amd64.zip -o vault.zip
+	unzip vault.zip
 	sudo mv vault /usr/local/bin
 fi
 
