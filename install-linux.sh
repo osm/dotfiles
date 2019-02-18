@@ -26,7 +26,7 @@ cp workspace-* $HOME/bin
 
 mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
-cp gpg-agent.conf-linux $HOME/.gnupg
+cp gpg-agent.conf-linux $HOME/.gnupg/gpg-agent.conf
 pkill -HUP gpg-agent
 
 if [ ! -d "/etc/X11/xorg.conf.d" ]; then
