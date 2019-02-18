@@ -3,7 +3,7 @@ export PATH="$PATH:$HOME/bin:$HOME/go/bin"
 export EDITOR="vim"
 export GPG_TTY=$(tty)
 export HISTTIMEFORMAT="%s "
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/Documents/apps/bash/bash-eternal-history'
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER "$(history 1)" >> ~/Dropbox/apps/bash/bash-eternal-history'
 
 alias ls="ls -F"
 alias docker_build_unittest="docker build --build-arg NPM_CACERT='' --build-arg NPM_PROXY='' --build-arg NPM_TOKEN=$(cat ~/.npmrc | cut -d= -f2) -f unit-tests.Dockerfile ."
@@ -13,5 +13,5 @@ alias tf_apply="./terraform.sh apply terraform.plan"
 alias vim="vim -p"
 
 function lcd {
-	cd $(tail -n 1000 "$HOME/Documents/apps/bash/bash-eternal-history" | grep "cd " | tail -n 1 | cut -d' ' -f9-)
+	cd $(tail -n 1000 "$HOME/Dropbox/apps/bash/bash-eternal-history" | grep "cd " | tail -n 1 | cut -d' ' -f9-)
 }
