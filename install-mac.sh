@@ -5,7 +5,8 @@ brew install awscli consul gnupg golang jq node nomad pinentry-mac postgresql tm
 brew cask install docker dropbox google-chrome iterm2 keepassx slack spotify tunnelblick
 brew services start postgresql
 
-cp ../.bash_profile ../.gitconfig .tmux.conf ../.vimrc $HOME
+cp .bash_profile .gitconfig .vimrc $HOME
+cp .tmux.conf-mac $HOME/.tmux.conf
 
 mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
