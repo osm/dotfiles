@@ -3,7 +3,9 @@
 sudo apt-get update
 sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools unzip openvpn net-tools nmap nodejs npm
 
-mkdir -p $HOME/{bin,src,tmp}
+mkdir $HOME/bin
+mkdir $HOME/src
+mkdir $HOME/tmp
 cp .bash_profile .gitconfig .vimrc .xinitrc .Xresources $HOME
 cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
