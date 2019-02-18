@@ -8,6 +8,11 @@ cp .bash_profile .gitconfig .vimrc .xinitrc .Xresources $HOME
 cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
 
+mkdir -p $HOME/.gnupg
+chmod 700 $HOME/.gnupg
+cp gpg-agent.conf-linux $HOME/.gnupg
+pkill -HUP gpg-agent
+
 if [ ! -d "/etc/X11/xorg.conf.d" ]; then
 	sudo mkdir -p "/etc/X11/xorg.conf.d"
 fi
