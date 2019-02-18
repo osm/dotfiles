@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools unzip openvpn net-tools nmap nodejs npm tmux
+sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common
 
 if [ ! -d "$HOME/bin" ]; then
 	mkdir $HOME/bin
@@ -95,6 +95,15 @@ if [ ! -f "/usr/bin/spotify" ]; then
 	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt-get update
 	sudo apt-get install -y spotify-client
+fi
+
+if [ ! -f "/usr/bin/docker" ]; then
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo apt-key fingerprint 0EBFCD88
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	sudo apt-get update
+	sudo apt-get install docker-ce docker-ce-cli containerd.io
+	sudo usermod -a -G docker $USER
 fi
 
 if [ ! -d $HOME/.dropbox-dist ]; then
