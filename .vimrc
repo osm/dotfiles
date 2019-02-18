@@ -1,5 +1,7 @@
 syntax on
 
+color desert
+
 let mapleader = ","
 
 set autoindent
