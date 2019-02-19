@@ -2,6 +2,7 @@
 
 setxkbmap -model pc105 -layout se
 xbacklight -set 15
+xinput --set-prop 11 "libinput Accel Speed" 1
 xmodmap -e "remove Lock = Caps_Lock" -e "keysym Caps_Lock = Escape"
 xrdb -merge "$HOME/.Xresources"
 xset r rate 200 60
