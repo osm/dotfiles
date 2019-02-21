@@ -43,6 +43,7 @@ if [ ! -f /usr/local/bin/dwm ]; then
 	curl -L "https://dl.suckless.org/dwm/dwm-$DWM_VERSION.tar.gz" | tar xzf -
 	cd "dwm-$DWM_VERSION"
 	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-tags-$DWM_VERSION.diff" | patch -p1
+	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-use-windows-key-$DWM_VERSION.diff" | patch -p1
 	make
 	sudo make install
 fi
