@@ -24,6 +24,7 @@ cp .bash_profile-linux $HOME/.bashrc
 cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
 cp vol* $HOME/bin
+cp random-image $HOME/bin
 
 mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
