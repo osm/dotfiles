@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc postgresql-client-common postgresql-client-10 xclip xsel
+sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc postgresql-client-common postgresql-client-10 xclip xsel oathtool
 
 if [ ! -d "$HOME/bin" ]; then
 	mkdir $HOME/bin
@@ -25,6 +25,7 @@ cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
 cp vol* $HOME/bin
 cp random-image $HOME/bin
+cp mfa-get $HOME/bin
 
 mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
