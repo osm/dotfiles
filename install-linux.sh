@@ -56,7 +56,7 @@ if [ ! -f "/usr/local/bin/st" ]; then
 	cd $HOME/tmp
 	curl "https://dl.suckless.org/st/st-$ST_VERSION.tar.gz" | tar xzf -
 	cd "st-$ST_VERSION"
-	curl "https://st.suckless.org/patches/clipboard/st-clipboard-$ST_VERSION.diff" | patch -p1
+	curl "https://raw.githubusercontent.com/osm/dotfiles/master/st-clipboard-$ST_VERSION.diff" | patch -p1
 	curl "https://raw.githubusercontent.com/osm/dotfiles/master/st-font-$ST_VERSION.diff" | patch -p1
 	curl "https://raw.githubusercontent.com/osm/dotfiles/master/st-term-$ST_VERSION.diff" | patch -p1
 	make
