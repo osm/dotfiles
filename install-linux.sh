@@ -47,6 +47,7 @@ if [ ! -f /usr/local/bin/dwm ]; then
 	cd "dwm-$DWM_VERSION"
 	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-tags-$DWM_VERSION.diff" | patch -p1
 	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-use-windows-key-$DWM_VERSION.diff" | patch -p1
+	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-color-scheme-$DWM_VERSION.diff" | patch -p1
 	make
 	sudo make install
 fi
