@@ -16,6 +16,7 @@ set hlsearch
 set ignorecase
 set noexpandtab
 set noswapfile
+set pastetoggle=<F2>
 set ruler
 set smartindent
 set t_Co=256
