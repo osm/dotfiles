@@ -1,2 +1,5 @@
 #!/bin/sh
-echo "" | xclip
+
+xclip -i /dev/null
+xclip -selection clipboard /dev/null
+pkill -9 xclip
