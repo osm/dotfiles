@@ -40,27 +40,18 @@ if [ ! -f "/etc/X11/xorg.conf.d/20-video.conf" ]; then
 	sudo cp "20-video.conf" "/etc/X11/xorg.conf.d"
 fi
 
-DWM_VERSION="6.2"
 if [ ! -f /usr/local/bin/dwm ]; then
 	cd $HOME/tmp
-	curl -L "https://dl.suckless.org/dwm/dwm-$DWM_VERSION.tar.gz" | tar xzf -
-	cd "dwm-$DWM_VERSION"
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-tags-$DWM_VERSION.diff" | patch -p1
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-use-windows-key-$DWM_VERSION.diff" | patch -p1
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-color-scheme-$DWM_VERSION.diff" | patch -p1
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/dwm-volume-control-$DWM_VERSION.diff" | patch -p1
+	git clone git@github.com:osm/dwm.git
+	cd dwm
 	make
 	sudo make install
 fi
 
-ST_VERSION="0.8.2"
 if [ ! -f "/usr/local/bin/st" ]; then
 	cd $HOME/tmp
-	curl "https://dl.suckless.org/st/st-$ST_VERSION.tar.gz" | tar xzf -
-	cd "st-$ST_VERSION"
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/st-clipboard-$ST_VERSION.diff" | patch -p1
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/st-font-$ST_VERSION.diff" | patch -p1
-	curl "https://raw.githubusercontent.com/osm/dotfiles/master/st-term-$ST_VERSION.diff" | patch -p1
+	git@github.com:osm/st.git
+	cd st
 	make
 	sudo make install
 fi
