@@ -1,6 +1,4 @@
-syntax on
-
-color desert
+syntax off
 
 let mapleader = ","
 
@@ -13,13 +11,12 @@ set ffs=unix
 set fileencodings=utf-8
 set fileformat=unix
 set hlsearch
-set ignorecase
 set noexpandtab
 set noswapfile
 set pastetoggle=<F2>
 set ruler
 set smartindent
-set t_Co=256
+set t_Co=0
 set termencoding=utf-8
 set titlestring="%f"
 
@@ -35,8 +32,8 @@ autocmd FileType go nmap <leader>t <Plug>(go-test)
 
 autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd BufNewFile,BufRead *.pl setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.rs setlocal tabstop=4 shiftwidth=4 expandtab
+autocmd BufNewFile,BufRead *.pl setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.sql setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
