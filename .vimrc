@@ -1,7 +1,5 @@
 syntax off
 
-let mapleader = ","
-
 set autoindent
 set autoread
 set autowrite
@@ -19,16 +17,6 @@ set smartindent
 set t_Co=0
 set termencoding=utf-8
 set titlestring="%f"
-
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-highlight TabLine cterm=reverse
-
-autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <leader>f <Plug>(go-fmt)
-autocmd FileType go nmap <leader>l <Plug>(go-lint)
-autocmd FileType go nmap <leader>r <Plug>(go-run)
-autocmd FileType go nmap <leader>t <Plug>(go-test)
 
 autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 shiftwidth=4 expandtab
