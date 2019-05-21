@@ -1,5 +1,8 @@
 syntax off
 
+let mapleader = ","
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 set autoindent
 set autoread
 set autowrite
