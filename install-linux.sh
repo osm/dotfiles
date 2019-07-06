@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc postgresql-client-common postgresql-client-10 xclip xsel oathtool
+sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc postgresql-client-common postgresql-client-10 xclip xsel oathtool wpasupplicant
 
 if [ ! -d "$HOME/bin" ]; then
 	mkdir $HOME/bin
@@ -25,7 +25,6 @@ cp .tmux.conf-linux $HOME/.tmux.conf
 cp workspace-* $HOME/bin
 cp vol* $HOME/bin
 cp random-image $HOME/bin
-cp mfa-get $HOME/bin
 
 mkdir -p $HOME/.gnupg
 chmod 700 $HOME/.gnupg
@@ -50,7 +49,7 @@ fi
 
 if [ ! -f "/usr/local/bin/st" ]; then
 	cd $HOME/tmp
-	git@github.com:osm/st.git
+	git clone git@github.com:osm/st.git
 	cd st
 	make
 	sudo make install
@@ -87,14 +86,7 @@ if [ ! -f "/usr/bin/yarn" ]; then
 	sudo apt-get install -y yarn
 fi
 
-if [ ! -f "/usr/bin/spotify" ]; then
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-	sudo apt-get update
-	sudo apt-get install -y spotify-client
-fi
-
-if [ ! -f "/usr/bin/docker" ]; then
+if [ 1 -eq 2 ] && [ ! -f "/usr/bin/docker" ]; then
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo apt-key fingerprint 0EBFCD88
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
