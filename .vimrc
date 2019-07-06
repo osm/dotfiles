@@ -1,4 +1,6 @@
-syntax off
+syntax on
+
+colorscheme elflord
 
 let mapleader = ","
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -17,7 +19,7 @@ set noswapfile
 set pastetoggle=<F2>
 set ruler
 set smartindent
-set t_Co=0
+set t_Co=256
 set termencoding=utf-8
 set titlestring="%f"
 
