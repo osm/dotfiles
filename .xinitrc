@@ -13,8 +13,8 @@ while true; do
 	load=$(awk '{ print $1 "/" $2 "/" $3 }' /proc/loadavg)
 	vpn=$(ifconfig tun0 >/dev/null 2>&1 && echo 1 || echo 0)
 	wifi=$(ifconfig wlp2s0 | grep inet >/dev/null 2>&1 && echo 1 || echo 0)
-	slack=$(grep "Updated unread_cnt for" "$HOME/.config/Slack/logs/webapp-<replace>-console.log" | tail -n 1 | awk '{ if ($NF == 0) { print 0 } else { print 1 }}')
-	xsetroot -name "load: $load | slack: $slack | wifi: $wifi | vpn: $vpn | bat: $bat | $date"
+	vol=$(amixer sget Master | awk -F"[][]" '/dB/ { print $2 }')
+	xsetroot -name "load: $load | wifi: $wifi | vpn: $vpn | vol: $vol | bat: $bat | $date"
 	sleep 5
 done&
 
