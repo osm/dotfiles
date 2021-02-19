@@ -1,4 +1,11 @@
-syntax on
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go'
+call plug#end()
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
+syntax off
 
 colorscheme elflord
 
@@ -24,13 +31,20 @@ set termencoding=utf-8
 set titlestring="%f"
 
 autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.jsx setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.json setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.graphql setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.tsx setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.ts setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.rs setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.pl setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.sql setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 shiftwidth=2 expandtab
-autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=72 nonumber digraph nolist
-autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=72 nonumber digraph nolist
+autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
+autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 autocmd BufNewFile,BufRead *.txt set textwidth=78
 autocmd BufNewFile,BufRead *.md  set textwidth=78
 autocmd BufNewFile,BufRead *.c  set textwidth=80
