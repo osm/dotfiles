@@ -5,9 +5,9 @@ set -g base-index 1
 set -g mouse on
 set -sg escape-time 0
 
-set -g status-bg "#ffffbb"
+set -g status-bg "#ffffdd"
 set -g status-fg "#000000"
-set -g window-status-current-bg "#ffffbb"
+set -g window-status-current-bg "#ffffdd"
 set -g window-status-current-fg "#000000"
 set -g window-status-current-attr bold
 set -g pane-active-border-fg "#000000"
