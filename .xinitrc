@@ -6,13 +6,14 @@ xinput --set-prop 11 "libinput Accel Speed" 1
 xmodmap -e "remove Lock = Caps_Lock" -e "keysym Caps_Lock = Escape"
 xrdb -merge "$HOME/.Xresources"
 xset r rate 250 60
+xsetroot -solid "#ffffdd"
 
 while true; do
 	bat=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage: | awk '{ print $2 }')
-	date=$(date +'%m-%d')
+	date=$(date "+%Y-%m-%d %H:%M")
 	vpn_wrk=$(ifconfig wg1 >/dev/null 2>&1 && echo 1 || echo 0)
 	vpn_home=$(ifconfig wg0 >/dev/null 2>&1 && echo 1 || echo 0)
-	xsetroot -name "dooer: $vpn_wrk | home: $vpn_home | bat: $bat | $date"
+	xsetroot -name "$vpn_wrk | $vpn_home | $bat | $date"
 	sleep 5
 done&
 
