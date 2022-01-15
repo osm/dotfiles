@@ -12,9 +12,10 @@
 	st = status
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+	branch = off
+	diff = off
+	status = off
+	log = off
 
 [user]
 	email = osm@recv.se
