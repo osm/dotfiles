@@ -5,8 +5,8 @@ call plug#end()
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-hi Search ctermbg=DarkGray
-hi Search ctermfg=White
+hi Search ctermbg=Yellow
+hi Search ctermfg=Black
 syntax off
 
 let mapleader = ","
