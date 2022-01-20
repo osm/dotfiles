@@ -7,6 +7,8 @@ Plug 'peitalin/vim-jsx-typescript'
 
 hi Search ctermbg=Yellow
 hi Search ctermfg=Black
+hi Visual ctermbg=White
+hi Visual ctermfg=Black
 syntax off
 
 let mapleader = ","
