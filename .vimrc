@@ -5,11 +5,12 @@ call plug#end()
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+syntax off
+
 hi Search ctermbg=Yellow
 hi Search ctermfg=Black
-hi Visual ctermbg=White
-hi Visual ctermfg=Black
-syntax off
+hi Visual ctermbg=Black
+hi Visual ctermfg=White
 
 let mapleader = ","
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -36,7 +37,7 @@ autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.jsx setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.css setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 shiftwidth=2 expandtab
-"autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd BufNewFile,BufRead *.html setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.json setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.graphql setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.graphqls setlocal tabstop=2 shiftwidth=2 expandtab
