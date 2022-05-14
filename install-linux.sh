@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc xclip xsel oathtool wpasupplicant jq jo rclone age rsync feh
+sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip net-tools nmap tmux apt-transport-https ca-certificates software-properties-common bc xclip xsel oathtool wpasupplicant jq jo rclone age rsync feh resolvconf wireguard
 
 if [ ! -d "$HOME/bin" ]; then
 	mkdir $HOME/bin
@@ -77,6 +77,12 @@ if [ ! -f "/usr/bin/google-chrome" ]; then
 	echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 	sudo apt-get update
 	sudo apt-get install -y google-chrome-stable
+fi
+
+if [ ! -f "/usr/bin/node" ]; then
+	curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+	sudo apt-get update
+	sudo apt-get installl -y nodejs
 fi
 
 if [ ! -f "/usr/bin/yarn" ]; then
