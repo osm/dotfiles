@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc postgresql-client-common postgresql-client-10 xclip xsel oathtool wpasupplicant jq jo
+sudo apt-get install -y awscli curl vim git build-essential xorg libx11-dev libxft-dev libxinerama-dev keepassx xbacklight upower alsa-tools alsa-utils unzip openvpn net-tools nmap nodejs npm tmux apt-transport-https ca-certificates software-properties-common bc xclip xsel oathtool wpasupplicant jq jo rclone age
 
 if [ ! -d "$HOME/bin" ]; then
 	mkdir $HOME/bin
@@ -41,7 +41,7 @@ fi
 
 if [ ! -f /usr/local/bin/dwm ]; then
 	cd $HOME/tmp
-	git clone git@github.com:osm/dwm.git
+	git clone https://github.com/osm/dwm.git
 	cd dwm
 	make
 	sudo make install
@@ -49,7 +49,7 @@ fi
 
 if [ ! -f "/usr/local/bin/st" ]; then
 	cd $HOME/tmp
-	git clone git@github.com:osm/st.git
+	git clone https://github.com/osm/st.git
 	cd st
 	make
 	sudo make install
@@ -93,9 +93,4 @@ if [ 1 -eq 2 ] && [ ! -f "/usr/bin/docker" ]; then
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io
 	sudo usermod -a -G docker $USER
-fi
-
-if [ ! -d $HOME/.dropbox-dist ]; then
-	cd $HOME
-	curl -L "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 fi
