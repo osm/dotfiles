@@ -64,14 +64,6 @@ if [ ! -f "/usr/local/bin/dmenu" ]; then
 	sudo make install
 fi
 
-VAULT_VERSION="1.0.3"
-if [ ! -f "/usr/local/bin/vault" ]; then
-	cd $HOME/tmp
-	curl https://releases.hashicorp.com/vault/$VAULT_VERSION/vault_${VAULT_VERSION}_linux_amd64.zip -o vault.zip
-	unzip vault.zip
-	sudo mv vault /usr/local/bin
-fi
-
 if [ ! -f "/usr/bin/google-chrome" ]; then
 	curl "https://dl-ssl.google.com/linux/linux_signing_key.pub" | sudo apt-key add -
 	echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
@@ -92,9 +84,7 @@ if [ ! -f "/usr/bin/yarn" ]; then
 	sudo apt-get install -y yarn
 fi
 
-if [ 1 -eq 2 ] && [ ! -f "/usr/bin/docker" ]; then
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	sudo apt-key fingerprint 0EBFCD88
+if [ ! -f "/usr/bin/docker" ]; then
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io
