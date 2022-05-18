@@ -7,7 +7,7 @@ set -sg escape-time 0
 
 set -g status-bg "#000000"
 set -g status-fg "#ffffff"
-set -g window-status-current-style bg=black,fg=white
+set -g window-status-current-style bg=black,fg=white,bright
 set -g pane-active-border-style fg=white
 
 set -g status-left ""
@@ -30,8 +30,8 @@ bind -n M-g resize-pane -L 5
 bind -n M-h resize-pane -R 5
 bind -n M-k resize-pane -U 5
 
-bind -n M-o swap-window -t -1
-bind -n M-p swap-window -t +1
+bind -n M-o swap-window -t -1 -d
+bind -n M-p swap-window -t +1 -d
 
 bind -n M-Down select-pane -D
 bind -n M-Left select-pane -L
