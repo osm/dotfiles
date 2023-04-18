@@ -93,7 +93,7 @@ NCSPOT_VERSION="0.13.1"
 if [ ! -f "$HOME/.bin/ncspot" ]; then
 	curl https://dumpinen.com/5K2jTaZcMYU >/tmp/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
 	sudo dpkg -i /tmp/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
-	curl https://github.com/hrkfdn/ncspot/releases/download/v$NCSPOT_VERSION/ncspot-v$NCSPOT_VERSION-linux-x86_64.tar.gz | tar xvfz - -C "$HOME/bin"
+	curl -L https://github.com/hrkfdn/ncspot/releases/download/v$NCSPOT_VERSION/ncspot-v$NCSPOT_VERSION-linux-x86_64.tar.gz | tar xvfz - -C "$HOME/bin"
 fi
 
 if [ ! -f "/usr/bin/google-chrome" ]; then
