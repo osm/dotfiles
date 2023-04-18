@@ -1,4 +1,0 @@
-set from   = "osm@dooer.com"
-set folder = "~/mail/dooer"
-
-source ~/.muttrc

@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -n "$1" ]; then
+	mul=$1
+else
+	mul=1
+fi
+
+amixer -q sset Master $((5*mul))%+

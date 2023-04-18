@@ -1,4 +1,0 @@
-set from   = "osclin@gmail.com"
-set folder = "~/mail/gmail"
-
-source ~/.muttrc
