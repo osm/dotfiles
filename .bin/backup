@@ -1,13 +1,21 @@
 #!/bin/sh
 
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
-	echo "usage: $0 <age public key> <config file> <backup dir>"
+pub_key="$1"
+if [ -n "$BACKUP_PUBLIC_KEY" ]; then
+	pub_key="$BACKUP_PUBLIC_KEY"
+fi
+
+config_file="$2"
+if [ -n "$BACKUP_CONFIG_FILE" ]; then
+	config_file="$BACKUP_CONFIG_FILE"
+fi
+
+if [ -z "$pub_key" ] || [ -z "$config_file" ]; then
+	echo "usage: $0 <BACKUP_PUBLIC_KEY | age public key> <BACKUP_CONFIG_FILE | config file>"
 	exit 1
 fi
 
-pub_key="$1"
-config_file="$2"
-backup_base_dir="$3"
+backup_base_dir="/tmp/backup"
 backup_dir="$backup_base_dir/$(date +%Y)/$(date +%m)/$(date +%d)"
 timestamp=$(date +%s)
 
