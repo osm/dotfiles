@@ -1,13 +1,14 @@
 #!/bin/sh
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
-	echo "usage: $0 <age public key> <config file> <backup dir>"
+	echo "usage: $0 <age public key> <config file> <backup dir> [<post script>]"
 	exit 1
 fi
 
 pub_key="$1"
 config_file="$2"
 backup_dir="$3/$(date +%Y)/$(date +%m)/$(date +%d)"
+post_script="$4"
 mkdir -p "$backup_dir"
 chmod 700 "$backup_dir"
 timestamp=$(date +%s)
@@ -84,3 +85,7 @@ echo "backing up postgres databases"
 grep "^backup_pg " $config_file | while read _ user pass db out_file ssh_key ssh_addr; do
 	backup_pg "$user" "$pass" "$db" "$out_file" "$ssh_key" "$ssh_addr"
 done
+
+if [ -n "$post_script" ]; then
+	exec "$post_script"
+fi
