@@ -1,0 +1,16 @@
+#!/bin/sh
+
+file="$HOME/.totp.age"
+
+if [ -z "$1" ]; then
+	age -d $file | cut -d= -f1
+else
+	code=$(age -d $file | grep "^$1=" | cut -d= -f2)
+
+	if [ x"$code" = x"" ]; then
+		echo "error: no code available for $1"
+		exit 1
+	fi
+
+	oathtool --totp -b "$code"
+fi
