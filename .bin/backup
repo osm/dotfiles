@@ -1,16 +1,17 @@
 #!/bin/sh
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
-	echo "usage: $0 <age public key> <config file> <backup dir> [<post script>]"
+	echo "usage: $0 <age public key> <config file> <backup dir>"
 	exit 1
 fi
 
 pub_key="$1"
 config_file="$2"
-backup_dir="$3/$(date +%Y)/$(date +%m)/$(date +%d)"
-post_script="$4"
+backup_base_dir="$3"
+backup_dir="$backup_base_dir/$(date +%Y)/$(date +%m)/$(date +%d)"
 timestamp=$(date +%s)
 
+rm -rf "$backup_base_dir"
 mkdir -p "$backup_dir"
 chmod 700 "$backup_dir"
 
@@ -83,7 +84,18 @@ sync_dir() {
 	rsync -az -e "ssh -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
 }
 
-grep -q "^backup_file" $config_file
+rclone_copy() {
+	local arg_0="$1"
+	local arg_1="$2"
+
+	if [ -n "$arg_0" ] && [ -z "$arg_1" ]; then
+		rclone copy --progress "$backup_base_dir" "$arg_0"
+	elif [ -n "$arg_0" ] && [ -n "$arg_1" ]; then
+		rclone copy --progress "$arg_0" "$arg_1"
+	fi
+}
+
+grep -q "^backup_file " $config_file
 if [ $? -eq 0 ]; then
 	echo "backing up files"
 	grep "^backup_file " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
@@ -91,7 +103,7 @@ if [ $? -eq 0 ]; then
 	done
 fi
 
-grep -q "^backup_dir" $config_file
+grep -q "^backup_dir " $config_file
 if [ $? -eq 0 ]; then
 	echo "backing up directories"
 	grep "^backup_dir " $config_file | while read _ in_dir out_file ssh_key ssh_addr; do
@@ -99,7 +111,7 @@ if [ $? -eq 0 ]; then
 	done
 fi
 
-grep -q "^backup_pg" $config_file
+grep -q "^backup_pg " $config_file
 if [ $? -eq 0 ]; then
 	echo "backing up postgres databases"
 	grep "^backup_pg " $config_file | while read _ user pass db out_file ssh_key ssh_addr; do
@@ -107,7 +119,7 @@ if [ $? -eq 0 ]; then
 	done
 fi
 
-grep -q "^sync_dir" $config_file
+grep -q "^sync_dir " $config_file
 if [ $? -eq 0 ]; then
 	echo "syncing directories"
 	grep "^sync_dir " $config_file | while read _ in_dir out_dir ssh_key ssh_addr; do
@@ -115,6 +127,13 @@ if [ $? -eq 0 ]; then
 	done
 fi
 
-if [ -n "$post_script" ]; then
-	exec "$post_script"
+grep -q "^rclone_copy " $config_file
+if [ $? -eq 0 ]; then
+	echo "rclone copy directories"
+	grep "^rclone_copy " $config_file | while read _ arg_0 arg_1; do
+		rclone_copy "$arg_0" "$arg_1"
+	done
 fi
+
+echo "cleaning up"
+rm -rf "$backup_base_dir"
