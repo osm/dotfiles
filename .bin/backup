@@ -1,13 +1,16 @@
 #!/bin/sh
 
-pub_key="$1"
 if [ -n "$BACKUP_PUBLIC_KEY" ]; then
 	pub_key="$BACKUP_PUBLIC_KEY"
 fi
 
-config_file="$2"
 if [ -n "$BACKUP_CONFIG_FILE" ]; then
 	config_file="$BACKUP_CONFIG_FILE"
+fi
+
+if [ -n "$1" ] && [ -n "$2" ]; then
+	pub_key="$1"
+	config_file="$2"
 fi
 
 if [ -z "$pub_key" ] || [ -z "$config_file" ]; then
@@ -60,24 +63,13 @@ backup_pg() {
 	local out_file="$4.$timestamp.gz.age"
 	local ssh_key="$5"
 	local ssh_addr="$6"
-	local ssh_sock="/tmp/backup_ssh_sock"
-	local port="5432"
-
-	if [ -f "$ssh_sock" ]; then
-		echo "error: $ssh_sock does already exist"
-		exit 1
-	fi
 
 	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
-		ssh -f -N -M -S "$ssh_sock" -i "$ssh_key" "$ssh_addr" -L 5544:localhost:5432
-		port="5544"
-	fi
-
-	PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" -p "$port" "$db" | \
-		gzip | age -r "$pub_key" >"$backup_dir/$out_file"
-
-	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
-		ssh -S "$ssh_sock" -O exit "$addr" >/dev/null 2>&1
+		ssh -i "$ssh_key" "$ssh_addr" PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" "$db" | \
+			gzip | age -r "$pub_key" >"$backup_dir/$out_file"
+	else
+		PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" "$db" | \
+			gzip | age -r "$pub_key" >"$backup_dir/$out_file"
 	fi
 }
 
