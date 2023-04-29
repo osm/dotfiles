@@ -1,0 +1,86 @@
+#!/bin/sh
+
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+	echo "usage: $0 <age public key> <config file> <backup dir>"
+	exit 1
+fi
+
+pub_key="$1"
+config_file="$2"
+backup_dir="$3/$(date +%Y)/$(date +%m)/$(date +%d)"
+mkdir -p "$backup_dir"
+chmod 700 "$backup_dir"
+timestamp=$(date +%s)
+
+backup_file() {
+	local in_file="$1"
+	local out_file="$2.$timestamp.age"
+	local ssh_key="$3"
+	local ssh_addr="$4"
+
+	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
+		scp -i "$ssh_key" "$ssh_addr":"$in_file" /dev/stdout \
+			| age -r "$pub_key" >"$backup_dir/$out_file"
+	else
+		cat "$in_file" | age -r "$pub_key" >"$backup_dir/$out_file"
+	fi
+}
+
+backup_dir() {
+	local in_dir="$1"
+	local dir=$(dirname $in_dir)
+	local base=$(basename $in_dir)
+	local out_file="$2.$timestamp.tar.gz.age"
+	local ssh_key="$3"
+	local ssh_addr="$4"
+
+	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
+		ssh -i "$ssh_key" "$ssh_addr" "tar cfz - -C $dir $base" \
+			| age -r "$pub_key" >"$backup_dir/$out_file"
+	else
+		tar cfz - -C "$dir" "$base" | age -r "$pub_key" >"$backup_dir/$out_file"
+	fi
+}
+
+backup_pg() {
+	local user="$1"
+	local pass="$2"
+	local db="$3"
+	local out_file="$4.$timestamp.gz.age"
+	local ssh_key="$5"
+	local ssh_addr="$6"
+	local ssh_sock="/tmp/backup_ssh_sock"
+	local port="5432"
+
+	if [ -f "$ssh_sock" ]; then
+		echo "error: $ssh_sock does already exist"
+		exit 1
+	fi
+
+	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
+		ssh -f -N -M -S "$ssh_sock" -i "$ssh_key" "$ssh_addr" -L 5544:localhost:5432
+		port="5544"
+	fi
+
+	PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" -p "$port" "$db" | \
+		gzip | age -r "$pub_key" >"$backup_dir/$out_file"
+
+	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
+		ssh -S "$ssh_sock" -O exit "$addr" >/dev/null 2>&1
+	fi
+}
+
+echo "backing up files"
+grep "^backup_file " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
+	backup_file "$in_file" "$out_file" "$ssh_key" "$ssh_addr"
+done
+
+echo "backing up directories"
+grep "^backup_dir " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
+	backup_dir "$in_file" "$out_file" "$ssh_key" "$ssh_addr"
+done
+
+echo "backing up postgres databases"
+grep "^backup_pg " $config_file | while read _ user pass db out_file ssh_key ssh_addr; do
+	backup_pg "$user" "$pass" "$db" "$out_file" "$ssh_key" "$ssh_addr"
+done
