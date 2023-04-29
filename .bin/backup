@@ -83,25 +83,37 @@ sync_dir() {
 	rsync -az -e "ssh -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
 }
 
-echo "backing up files"
-grep "^backup_file " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
-	backup_file "$in_file" "$out_file" "$ssh_key" "$ssh_addr"
-done
+grep -q "^backup_file" $config_file
+if [ $? -eq 0 ]; then
+	echo "backing up files"
+	grep "^backup_file " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
+		backup_file "$in_file" "$out_file" "$ssh_key" "$ssh_addr"
+	done
+fi
 
-echo "backing up directories"
-grep "^backup_dir " $config_file | while read _ in_dir out_file ssh_key ssh_addr; do
-	backup_dir "$in_dir" "$out_file" "$ssh_key" "$ssh_addr"
-done
+grep -q "^backup_dir" $config_file
+if [ $? -eq 0 ]; then
+	echo "backing up directories"
+	grep "^backup_dir " $config_file | while read _ in_dir out_file ssh_key ssh_addr; do
+		backup_dir "$in_dir" "$out_file" "$ssh_key" "$ssh_addr"
+	done
+fi
 
-echo "backing up postgres databases"
-grep "^backup_pg " $config_file | while read _ user pass db out_file ssh_key ssh_addr; do
-	backup_pg "$user" "$pass" "$db" "$out_file" "$ssh_key" "$ssh_addr"
-done
+grep -q "^backup_pg" $config_file
+if [ $? -eq 0 ]; then
+	echo "backing up postgres databases"
+	grep "^backup_pg " $config_file | while read _ user pass db out_file ssh_key ssh_addr; do
+		backup_pg "$user" "$pass" "$db" "$out_file" "$ssh_key" "$ssh_addr"
+	done
+fi
 
-echo "syncing directories"
-grep "^sync_dir " $config_file | while read _ in_dir out_dir ssh_key ssh_addr; do
-	sync_dir "$in_dir" "$out_dir" "$ssh_key" "$ssh_addr"
-done
+grep -q "^sync_dir" $config_file
+if [ $? -eq 0 ]; then
+	echo "syncing directories"
+	grep "^sync_dir " $config_file | while read _ in_dir out_dir ssh_key ssh_addr; do
+		sync_dir "$in_dir" "$out_dir" "$ssh_key" "$ssh_addr"
+	done
+fi
 
 if [ -n "$post_script" ]; then
 	exec "$post_script"
