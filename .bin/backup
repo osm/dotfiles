@@ -9,9 +9,10 @@ pub_key="$1"
 config_file="$2"
 backup_dir="$3/$(date +%Y)/$(date +%m)/$(date +%d)"
 post_script="$4"
+timestamp=$(date +%s)
+
 mkdir -p "$backup_dir"
 chmod 700 "$backup_dir"
-timestamp=$(date +%s)
 
 backup_file() {
 	local in_file="$1"
@@ -71,19 +72,35 @@ backup_pg() {
 	fi
 }
 
+sync_dir() {
+	local in_dir="$1"
+	local dir=$(dirname $in_dir)
+	local base=$(basename $in_dir)
+	local out_dir="$2"
+	local ssh_key="$3"
+	local ssh_addr="$4"
+
+	rsync -az -e "ssh -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
+}
+
 echo "backing up files"
 grep "^backup_file " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
 	backup_file "$in_file" "$out_file" "$ssh_key" "$ssh_addr"
 done
 
 echo "backing up directories"
-grep "^backup_dir " $config_file | while read _ in_file out_file ssh_key ssh_addr; do
-	backup_dir "$in_file" "$out_file" "$ssh_key" "$ssh_addr"
+grep "^backup_dir " $config_file | while read _ in_dir out_file ssh_key ssh_addr; do
+	backup_dir "$in_dir" "$out_file" "$ssh_key" "$ssh_addr"
 done
 
 echo "backing up postgres databases"
 grep "^backup_pg " $config_file | while read _ user pass db out_file ssh_key ssh_addr; do
 	backup_pg "$user" "$pass" "$db" "$out_file" "$ssh_key" "$ssh_addr"
+done
+
+echo "syncing directories"
+grep "^sync_dir " $config_file | while read _ in_dir out_dir ssh_key ssh_addr; do
+	sync_dir "$in_dir" "$out_dir" "$ssh_key" "$ssh_addr"
 done
 
 if [ -n "$post_script" ]; then
