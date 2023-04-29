@@ -14,15 +14,15 @@ timestamp=$(date +%s)
 
 backup_file() {
 	local in_file="$1"
-	local out_file="$2.$timestamp.age"
+	local out_file="$2.$timestamp.gz.age"
 	local ssh_key="$3"
 	local ssh_addr="$4"
 
 	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
 		scp -i "$ssh_key" "$ssh_addr":"$in_file" /dev/stdout \
-			| age -r "$pub_key" >"$backup_dir/$out_file"
+			| gzip | age -r "$pub_key" >"$backup_dir/$out_file"
 	else
-		cat "$in_file" | age -r "$pub_key" >"$backup_dir/$out_file"
+		cat "$in_file" | gzip | age -r "$pub_key" >"$backup_dir/$out_file"
 	fi
 }
 
