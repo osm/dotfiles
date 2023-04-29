@@ -85,14 +85,14 @@ sync_dir() {
 }
 
 rclone_copy() {
-	local src_dir="$1"
-	local dest_dir="$2"
+	local in_dir="$1"
+	local out_dir="$2"
 
-	if [ "$src_dir" = "__BACKUP_DIR__" ]; then
-		src_dir="$backup_base_dir"
+	if [ "$in_dir" = "__BACKUP_DIR__" ]; then
+		in_dir="$backup_base_dir"
 	fi
 
-	rclone copy --progress "$src_dir" "$dest_dir"
+	rclone copy --progress "$in_dir" "$out_dir"
 }
 
 grep -q "^backup_file " $config_file
@@ -130,8 +130,8 @@ fi
 grep -q "^rclone_copy " $config_file
 if [ $? -eq 0 ]; then
 	echo "rclone copy directories"
-	grep "^rclone_copy " $config_file | while read _ src_dir dest_dir; do
-		rclone_copy "$src_dir" "$dest_dir"
+	grep "^rclone_copy " $config_file | while read _ in_dir out_dir; do
+		rclone_copy "$in_dir" "$out_dir"
 	done
 fi
 
