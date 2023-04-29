@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get install -y curl vim git build-essential xorg libx11-dev \
 	libxft-dev libxinerama-dev libxrandr-dev keepassx xbacklight \
-	upower alsa-tools alsa-utils pulse-audio unzip net-tools nmap \
+	upower alsa-tools alsa-utils pulseaudio unzip net-tools nmap \
 	tmux apt-transport-https ca-certificates software-properties-common \
 	bc xclip xsel oathtool wpasupplicant jq rclone age rsync feh \
 	resolvconf wireguard scrot sqlite whois
@@ -85,7 +85,7 @@ fi
 
 GO_VERSION="1.20.3"
 if [ ! -d "/usr/local/go" ]; then
-	curl https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz >/tmp/go$GO_VERSION.linux-amd64.tar.gz
+	curl -L https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz >/tmp/go$GO_VERSION.linux-amd64.tar.gz
 	sudo tar -C /usr/local -xzf /tmp/go$GO_VERSION.linux-amd64.tar.gz
 fi
 
