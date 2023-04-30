@@ -81,7 +81,7 @@ sync_dir() {
 	local ssh_key="$3"
 	local ssh_addr="$4"
 
-	rsync -az -e "ssh -n -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
+	rsync -az -e "ssh -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
 }
 
 rclone_copy() {
