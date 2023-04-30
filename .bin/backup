@@ -49,7 +49,7 @@ backup_dir() {
 	local ssh_addr="$4"
 
 	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
-		ssh -i "$ssh_key" "$ssh_addr" "tar cfz - -C $dir $base" \
+		ssh -n -i "$ssh_key" "$ssh_addr" "tar cfz - -C $dir $base" \
 			| age -r "$pub_key" >"$backup_dir/$out_file"
 	else
 		tar cfz - -C "$dir" "$base" | age -r "$pub_key" >"$backup_dir/$out_file"
@@ -65,7 +65,7 @@ backup_pg() {
 	local ssh_addr="$6"
 
 	if [ -n "$ssh_key" ] && [ -n "$ssh_addr" ]; then
-		ssh -i "$ssh_key" "$ssh_addr" PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" "$db" | \
+		ssh -n -i "$ssh_key" "$ssh_addr" PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" "$db" | \
 			gzip | age -r "$pub_key" >"$backup_dir/$out_file"
 	else
 		PGPASSWORD=$pass pg_dump -U "$user" -h "localhost" "$db" | \
@@ -81,7 +81,7 @@ sync_dir() {
 	local ssh_key="$3"
 	local ssh_addr="$4"
 
-	rsync -az -e "ssh -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
+	rsync -az -e "ssh -n -i $ssh_key" "$ssh_addr:$in_dir" "$out_dir"
 }
 
 rclone_copy() {
