@@ -7,7 +7,7 @@ sudo apt-get install -y curl vim git build-essential xorg libx11-dev \
 	upower alsa-tools alsa-utils pulseaudio unzip net-tools nmap \
 	tmux apt-transport-https ca-certificates software-properties-common \
 	bc xclip xsel oathtool wpasupplicant jq rclone age rsync feh \
-	resolvconf wireguard scrot sqlite whois
+	resolvconf wireguard scrot sqlite whois iptables iptables-persistent
 
 if [ ! -d "$HOME/.bin" ]; then
 	mkdir $HOME/.bin
