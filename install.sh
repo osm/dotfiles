@@ -83,7 +83,7 @@ if [ ! -d "$HOME/.rustup" ]; then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-GO_VERSION="1.20.3"
+GO_VERSION="1.20.6"
 if [ ! -d "/usr/local/go" ]; then
 	curl -L https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz >/tmp/go$GO_VERSION.linux-amd64.tar.gz
 	sudo tar -C /usr/local -xzf /tmp/go$GO_VERSION.linux-amd64.tar.gz
