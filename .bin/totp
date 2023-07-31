@@ -5,7 +5,8 @@ file="$HOME/.totp.age"
 if [ -z "$1" ]; then
 	age -d $file | cut -d= -f1
 else
-	code=$(age -d $file | grep "^$1=" | cut -d= -f2)
+	code=$(age -d $file | grep "^$1=" | cut -d= -f2 | sed 's/"//g')
+
 
 	if [ x"$code" = x"" ]; then
 		echo "error: no code available for $1"
