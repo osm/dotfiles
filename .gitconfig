@@ -10,6 +10,7 @@
 	re = rebase
 	sh = show
 	st = status
+	mr = merge --no-ff
 
 [color]
 	branch = off
