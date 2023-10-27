@@ -13,10 +13,10 @@
 	mr = merge --no-ff
 
 [color]
-	branch = off
-	diff = off
-	status = off
-	log = off
+	branch = on
+	diff = on
+	status = on
+	log = on
 
 [user]
 	email = osm@recv.se
@@ -28,3 +28,6 @@
 
 [commit]
 	gpgsign = true
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
