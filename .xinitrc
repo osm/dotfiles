@@ -7,7 +7,7 @@ setxkbmap -model pc105 -layout se
 xbacklight -set 15
 xrdb -merge "$HOME/.Xresources"
 xset r rate 250 60
-xsetroot -solid "#000000"
+xsetroot -solid "#515489"
 
 while true; do
 	bat=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage: | awk '{ print $2 }')
