@@ -1,0 +1,10 @@
+(
+  menu,
+  (st, SHORTCUT, "Shift+Mod4+Return", EXEC, st),
+  (slock, SHORTCUT, "Shift+Mod4+l", EXEC, slock),
+  (clear, SHORTCUT, "Mod4+x", EXEC, "clear-clipboard"),
+  (conf, EXEC, WPrefs),
+  (save, SAVE_SESSION),
+  (restart, RESTART),
+  (exit, SHORTCUT, "Shift+Mod4+q", EXIT)
+)

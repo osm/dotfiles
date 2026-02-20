@@ -1,0 +1,209 @@
+{
+  Dock = {
+    Applications1200 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "wmclock %s";
+        Command = wmclock;
+      }
+    );
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "wmclock %s";
+        Command = wmclock;
+      }
+    );
+    Lowered = Yes;
+    Position = "1856,0";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Lock = No;
+    Position = "0,0";
+    Command = "-";
+  };
+  Applications = (
+    {
+      Maximized = 0x0000;
+      Name = "xterm-256color.xterm-256color";
+      Shaded = No;
+      Miniaturized = No;
+      Command = st;
+      Geometry = "794x612+1020+12";
+      Hidden = No;
+      Workspace = ws1;
+      ShortcutMask = 0;
+    },
+    {
+      Maximized = 0x0000;
+      Name = keepassxc.KeePassXC;
+      Shaded = No;
+      Miniaturized = No;
+      Command = keepassxc;
+      Geometry = "1781x1114+28+20";
+      Hidden = No;
+      Workspace = ws3;
+      ShortcutMask = 0;
+    },
+    {
+      Maximized = 0x0000;
+      Name = "google-chrome.Google-chrome";
+      Shaded = No;
+      Miniaturized = No;
+      Command = "/usr/bin/google-chrome";
+      Geometry = "1731x1105+32+23";
+      Hidden = No;
+      Workspace = ws2;
+      ShortcutMask = 0;
+    },
+    {
+      Maximized = 0x0000;
+      Name = "xterm-256color.xterm-256color";
+      Shaded = No;
+      Miniaturized = No;
+      Command = st;
+      Geometry = "804x460+1017+677";
+      Hidden = No;
+      Workspace = ws1;
+      ShortcutMask = 0;
+    },
+    {
+      Maximized = 0x0000;
+      Name = "xterm-256color.xterm-256color";
+      Shaded = No;
+      Miniaturized = No;
+      Command = st;
+      Geometry = "984x1125+18+13";
+      Hidden = No;
+      Workspace = ws1;
+      ShortcutMask = 0;
+    }
+  );
+  Drawers = ();
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws1;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws2;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws3;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws4;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws5;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws6;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws7;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        Applications = ();
+        AutoCollapse = No;
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = ws8;
+    }
+  );
+  Workspace = ws1;
+}

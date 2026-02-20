@@ -1,0 +1,31 @@
+{
+  VirtualBoxVM.VirtualBoxVM = {
+    NoAppIcon = Yes;
+    AlwaysUserIcon = No;
+  };
+  default.default = {
+    NoAppIcon = Yes;
+  };
+  firefox_firefox.Firefox_firefox = {
+    NoAppIcon = Yes;
+  };
+  VirtualBox.VirtualBox = {
+    NoAppIcon = Yes;
+  };
+  keepassxc.KeePassXC = {
+    NoAppIcon = Yes;
+  };
+  "xterm-256color.xterm-256color" = {
+    AlwaysUserIcon = No;
+    Icon = defaultterm.xpm;
+  };
+  "VirtualBox Manager.VirtualBox Manager" = {
+    AlwaysUserIcon = No;
+  };
+  ezq.ezq = {
+    AlwaysUserIcon = No;
+  };
+  Navigator.firefox_firefox = {
+    AlwaysUserIcon = No;
+  };
+}
