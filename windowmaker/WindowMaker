@@ -1,57 +1,24 @@
 {
-  DontLinkWorkspaces = NO;
   FrameBorderColor = "#000000";
   FTitleColor = "#ffffff";
-  ScreenCaptureKey = None;
-  MiniaturizeKey = None;
-  MenuDisabledColor = "#7f7f7f";
-  PixmapPath = (
-    "/home/osm/GNUstep/Library/WindowMaker/Pixmaps",
-    "/home/osm/GNUstep/Library/WindowMaker/Backgrounds",
-    "/home/osm/GNUstep/Library/WindowMaker/CachedPixmaps",
-    "~/pixmaps",
-    "/usr/local/share/WindowMaker/Pixmaps",
-    "/usr/local/share/WindowMaker/Backgrounds",
-    "/usr/local/share/pixmaps"
-  );
-  IconTitleBack = "#000000";
-  HotCornerEdge = 2;
-  WindowMenuKey = "Mod4+W";
-  HideKey = None;
-  DisableClip = YES;
-  HotCornerDelay = 250;
-  CycleWorkspaces = YES;
-  OpaqueMoveResizeKeyboard = YES;
   CenterKey = None;
   IconTitleColor = "#ffffff";
-  MenuTextColor = "#000000";
-  MenuTitleColor = "#ffffff";
-  AntialiasedText = YES;
-  HotCorners = NO;
-  LowerKey = None;
-  WindowListKey = None;
   MoveTo6to12Head = None;
   DbClickFullScreen = NO;
-  NoWindowOverDock = YES;
-  NoWindowOverIcons = YES;
-  HighlightTextColor = "#000000";
-  EnforceIconMargin = NO;
   WindowSnapping = YES;
-  PrevWorkspaceKey = "Mod4+Left";
-  ClipTitleColor = "#000000";
-  MoveTo12to6Head = None;
-  HotCornerActions = (None, None, None, None);
-  HighlightColor = "#ffffff";
   FrameFocusedBorderColor = "#000000";
-  FocusMode = sloppy;
-  WindowTitleFont = "Sans:weight=200:pixelsize=12";
-  NextWorkspaceKey = "Mod4+Right";
-  Workspace8Key = None;
-  RunKey = "Mod4+P";
-  Workspace10Key = None;
-  Workspace9Key = None;
-  CClipTitleColor = "#616161";
   RootMenuKey = "Mod4+M";
+  WorkspaceBorderSize = 5;
+  CloseRootMenuByLeftOrRightMouseClick = YES;
+  FrameSelectedBorderColor = "#ffffff";
+  MiniaturizeKey = None;
+  HotCornerDelay = 250;
+  AntialiasedText = YES;
+  WindowListKey = None;
+  HighlightColor = "#ffffff";
+  FocusMode = sloppy;
+  NextWorkspaceKey = "Mod4+Right";
+  CClipTitleColor = "#616161";
   IconPath = (
     "/home/osm/GNUstep/Library/Icons",
     "/home/osm/GNUstep/Library/WindowMaker/Pixmaps",
@@ -61,18 +28,54 @@
     "/usr/local/share/WindowMaker/Pixmaps",
     "/usr/local/share/pixmaps"
   );
-  RaiseKey = None;
+  DontLinkWorkspaces = NO;
+  ScreenCaptureKey = None;
+  MenuDisabledColor = "#7f7f7f";
+  IconTitleBack = "#000000";
+  PixmapPath = (
+    "/home/osm/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/osm/GNUstep/Library/WindowMaker/Backgrounds",
+    "/home/osm/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/usr/local/share/WindowMaker/Pixmaps",
+    "/usr/local/share/WindowMaker/Backgrounds",
+    "/usr/local/share/pixmaps"
+  );
+  HotCornerEdge = 2;
+  HideKey = None;
+  MaximizeKey = "Shift+Mod4+M";
+  DisableClip = YES;
+  MenuTitleColor = "#ffffff";
+  HotCorners = NO;
+  NoWindowOverDock = YES;
+  HighlightTextColor = "#000000";
+  EnforceIconMargin = NO;
+  PrevWorkspaceKey = "Mod4+Left";
+  ClipTitleColor = "#000000";
+  MoveTo12to6Head = None;
+  HotCornerActions = (None, None, None, None);
+  WorkspaceBorder = AllDirections;
+  WindowTitleFont = "Sans:weight=200:pixelsize=12";
+  RunKey = "Mod4+P";
+  Workspace8Key = None;
+  Workspace9Key = None;
   Workspace4Key = "Mod4+4";
   Workspace5Key = "Mod4+5";
   Workspace6Key = "Mod4+6";
-  SaveSessionOnExit = YES;
   Workspace7Key = None;
-  ViKeyMenus = YES;
-  UTitleColor = "#000000";
-  PTitleColor = "#ffffff";
   Workspace1Key = "Mod4+1";
-  CloseRootMenuByLeftOrRightMouseClick = YES;
   Workspace2Key = "Mod4+2";
   Workspace3Key = "Mod4+3";
-  FrameSelectedBorderColor = "#ffffff";
+  WindowMenuKey = "Mod4+W";
+  CycleWorkspaces = YES;
+  OpaqueMoveResizeKeyboard = YES;
+  MenuTextColor = "#000000";
+  LowerKey = None;
+  NoWindowOverIcons = YES;
+  Workspace10Key = None;
+  RaiseKey = None;
+  SaveSessionOnExit = YES;
+  UTitleColor = "#000000";
+  ViKeyMenus = YES;
+  PTitleColor = "#ffffff";
 }

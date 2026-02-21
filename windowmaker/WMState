@@ -20,6 +20,17 @@
         Lock = No;
         PasteCommand = "wmclock %s";
         Command = wmclock;
+      },
+      {
+        Forced = No;
+        Name = wmacpi.DockApp;
+        DropCommand = "wmacpi %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,2";
+        Lock = No;
+        PasteCommand = "wmacpi %s";
+        Command = wmacpi;
       }
     );
     AutoRaiseLower = No;
@@ -43,6 +54,17 @@
         Lock = No;
         PasteCommand = "wmclock %s";
         Command = wmclock;
+      },
+      {
+        Forced = No;
+        Name = wmacpi.DockApp;
+        DropCommand = "wmacpi %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,2";
+        Lock = No;
+        PasteCommand = "wmacpi %s";
+        Command = wmacpi;
       }
     );
     Lowered = Yes;
@@ -64,53 +86,53 @@
       Shaded = No;
       Miniaturized = No;
       Command = st;
-      Geometry = "794x612+1020+12";
+      Geometry = "804x631+1022+5";
       Hidden = No;
       Workspace = ws1;
       ShortcutMask = 0;
     },
     {
       Maximized = 0x0000;
-      Name = keepassxc.KeePassXC;
+      Name = "xterm-256color.xterm-256color";
       Shaded = No;
       Miniaturized = No;
-      Command = keepassxc;
-      Geometry = "1781x1114+28+20";
+      Command = st;
+      Geometry = "804x460+1022+689";
       Hidden = No;
-      Workspace = ws3;
+      Workspace = ws1;
       ShortcutMask = 0;
     },
     {
       Maximized = 0x0000;
+      Name = "xterm-256color.xterm-256color";
+      Shaded = No;
+      Miniaturized = No;
+      Command = st;
+      Geometry = "984x1144+5+5";
+      Hidden = No;
+      Workspace = ws1;
+      ShortcutMask = 0;
+    },
+    {
+      Maximized = 0x0003;
       Name = "google-chrome.Google-chrome";
       Shaded = No;
       Miniaturized = No;
       Command = "/usr/bin/google-chrome";
-      Geometry = "1731x1105+32+23";
+      Geometry = "1844x1094+5+5";
       Hidden = No;
       Workspace = ws2;
       ShortcutMask = 0;
     },
     {
-      Maximized = 0x0000;
-      Name = "xterm-256color.xterm-256color";
+      Maximized = 0x0003;
+      Name = keepassxc.KeePassXC;
       Shaded = No;
       Miniaturized = No;
-      Command = st;
-      Geometry = "804x460+1017+677";
+      Command = keepassxc;
+      Geometry = "1844x1094+5+5";
       Hidden = No;
-      Workspace = ws1;
-      ShortcutMask = 0;
-    },
-    {
-      Maximized = 0x0000;
-      Name = "xterm-256color.xterm-256color";
-      Shaded = No;
-      Miniaturized = No;
-      Command = st;
-      Geometry = "984x1125+18+13";
-      Hidden = No;
-      Workspace = ws1;
+      Workspace = ws3;
       ShortcutMask = 0;
     }
   );

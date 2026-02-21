@@ -12,6 +12,10 @@
   VirtualBox.VirtualBox = {
     NoAppIcon = Yes;
   };
+  "ghidra-Ghidra.ghidra-Ghidra" = {
+    NoAppIcon = Yes;
+    AlwaysUserIcon = No;
+  };
   keepassxc.KeePassXC = {
     NoAppIcon = Yes;
   };

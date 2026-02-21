@@ -3,6 +3,7 @@
   (st, SHORTCUT, "Shift+Mod4+Return", EXEC, st),
   (slock, SHORTCUT, "Shift+Mod4+l", EXEC, slock),
   (clear, SHORTCUT, "Mod4+x", EXEC, "clear-clipboard"),
+  (ezq, EXEC, _ezqdemo),
   (conf, EXEC, WPrefs),
   (save, SAVE_SESSION),
   (restart, RESTART),
