@@ -1,12 +1,18 @@
+call plug#begin()
+Plug 'fatih/vim-go'
+call plug#end()
+
 syntax off
 
+hi EndOfBuffer ctermfg=Black
 hi Search ctermbg=Yellow
 hi Search ctermfg=Black
-hi Visual ctermbg=Black
-hi Visual ctermfg=White
+hi Visual ctermbg=White
+hi Visual ctermfg=Black
 
 let mapleader = ","
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap gr gT
 
 set autoindent
 set autoread
@@ -41,10 +47,7 @@ autocmd BufNewFile,BufRead *.rs setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.pl setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufNewFile,BufRead *.sql setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 shiftwidth=2 expandtab
-autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
-autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 autocmd BufNewFile,BufRead *.txt set textwidth=78
-autocmd BufNewFile,BufRead *.md  set textwidth=78
-autocmd BufNewFile,BufRead *.c  set textwidth=80
+autocmd BufNewFile,BufRead *.md set textwidth=78
+autocmd BufNewFile,BufRead *.c set textwidth=80
 autocmd BufNewFile,BufRead *.git/COMMIT_EDITMSG set textwidth=72
-autocmd BufWritePost *.go :silent execute "!gofmt -w %" | redraw!
